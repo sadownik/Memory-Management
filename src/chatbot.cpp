@@ -86,7 +86,8 @@ ChatBot & ChatBot::operator=(ChatBot &&source) // 5 : move assignment operator
     if (this == &source)
         return *this;
 
-    delete _image;
+    if (_image != nullptr)
+        delete _image;
 
     _chatLogic = source._chatLogic;
     _chatLogic->SetChatbotHandle(this);
